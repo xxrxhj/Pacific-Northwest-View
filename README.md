@@ -17,3 +17,4 @@ import matplotlib.pyplot as plt
 weather = pd.read_csv('weatherstats_vancouver_daily.csv')
 weather.sample(5)
 
+| date       | max\_temperature | avg\_hourly\_temperature | avg\_temperature | min\_temperature | max\_humidex | min\_windchill | max\_relative\_humidity | avg\_hourly\_relative\_humidity | avg\_relative\_humidity
