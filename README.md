@@ -9,13 +9,17 @@ The following database is a climate report that features extreme highs and lows.
 1. import libraries
 
 import pandas as pd
+
 import seaborn as sns
+
 import numpy as np
+
 import matplotlib.pyplot as plt
 
 2. upload database
 
 weather = pd.read_csv('weatherstats_vancouver_daily.csv')
+
 weather.sample(5)
 
 |   |       date | max_temperature | avg_hourly_temperature | avg_temperature | min_temperature | max_humidex | min_windchill | max_relative_humidity | avg_hourly_relative_humidity | avg_relative_humidity | ... | avg_cloud_cover_4 | min_cloud_cover_4 | max_cloud_cover_8 | avg_hourly_cloud_cover_8 | avg_cloud_cover_8 | min_cloud_cover_8 | max_cloud_cover_10 | avg_hourly_cloud_cover_10 | avg_cloud_cover_10 | min_cloud_cover_10 |
@@ -32,16 +36,27 @@ weather.sample(5)
 weather['min_windchill'].fillna('NaN')
 
 0     NaN
+
 1     NaN
+
 2     NaN
+
 3     NaN
+
 4     NaN
-     ... 
+
+... 
+
 95    NaN
+
 96    NaN
+
 97    NaN
+
 98    NaN
+
 99    NaN
+
 Name: min_windchill, Length: 100, dtype: object
 
 3. drop duplicates
