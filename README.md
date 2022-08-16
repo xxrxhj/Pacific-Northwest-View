@@ -1,6 +1,6 @@
 # data-cleaning
 
-Situated in the Pacific Northwest, Vancouver BC is known for its Mediterranean climate, which sees rainy winter/spring and temperate summer.
+Situated in the Pacific Northwest, Vancouver BC is known for its Mediterranean climate with rainy winter/spring and temperate summer.
 
 As a wine-enthusiast, I was fascinated by the degree of weather fluctation attributable to quality grapes.
 
