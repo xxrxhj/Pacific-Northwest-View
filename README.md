@@ -96,3 +96,32 @@ plt.show()
 ![image](https://user-images.githubusercontent.com/108639250/184941735-b8dcbcca-722c-4699-8492-6f4ada3f6d94.png)
 
 
+5. Calculate the interquartile range
+
+Q1 = weather.quantile(0.25)
+
+Q3 = weather.quantile(0.75)
+
+IQR = Q3 - Q1
+
+print(IQR)
+
+6. Filter outliers
+
+print(weather < (Q1 - 1.5 * IQR)) |(weather > (Q3 + 1.5 * IQR))
+
+|    | avg_cloud_cover_10 | avg_cloud_cover_4 | avg_cloud_cover_8 | avg_dew_point | avg_health_index |
+|----|--------------------|-------------------|-------------------|---------------|------------------|
+| 0  | False              | False             | False             | False         | False            |
+| 1  | False              | False             | False             | False         | False            |
+| 2  | False              | False             | TURE              | False         | False            |
+| 3  | False              | False             | False             | False         | False            |
+| 4  | False              | False             | False             | False         | False            |
+| .. | ...                | ...               | ...               | ...           |                  |
+| 95 | False              | False             | False             | False         | False            |
+| 96 | False              | False             | False             | False         | False            |
+| 97 | False              | False             | False             | False         | False            |
+| 98 | False              | False             | False             | False         | False            |
+| 99 | False              | False             | False             | False         | False            |
+
+
