@@ -1,10 +1,12 @@
-# data-cleaning
+# Pacific Northwest's Hidden Gem
 
-Situated in the Pacific Northwest, Vancouver BC is known for its Mediterranean climate with rainy winter/spring and temperate summer.
+Vancouver BC is known for its Mediterranean climate with rainy winter/spring and temperate summer.
 
 As a wine-enthusiast, I was fascinated by the degree of weather fluctation attributable to quality grapes.
 
-The following database is a climate report that features extreme highs and lows. Let's find out the duplicates and outliers.
+The following database is a climate report that features extreme highs and lows. Let's discover the duplicates and outliers.
+
+
 
 1. import libraries
 
@@ -85,7 +87,7 @@ plt.figure(figsize=(20,10))
 
 plt.subplot(1,2,1)
 
-plt.xlim(0,30)
+plt.xlim(0,35)
 
 plt.ylim(0,0.1)
 
@@ -93,7 +95,7 @@ sns.distplot(weather['max_temperature'])
 
 plt.show()
 
-![image](https://user-images.githubusercontent.com/108639250/184941735-b8dcbcca-722c-4699-8492-6f4ada3f6d94.png)
+![Screen Shot 2022-08-16 at 10 10 32 PM](https://user-images.githubusercontent.com/108639250/185019277-4fddbf5f-ad59-45d6-ba58-22e98d0cf34a.png)
 
 
 5. Calculate the interquartile range
@@ -106,7 +108,7 @@ IQR = Q3 - Q1
 
 print(IQR)
 
-6. Filter outliers
+6. Filter outliers (*turns out the 3rd row of avg_cloud_cover_8 is an outlier*)
 
 print(weather < (Q1 - 1.5 * IQR)) |(weather > (Q3 + 1.5 * IQR))
 
@@ -114,7 +116,7 @@ print(weather < (Q1 - 1.5 * IQR)) |(weather > (Q3 + 1.5 * IQR))
 |----|--------------------|-------------------|-------------------|---------------|------------------|
 | 0  | False              | False             | False             | False         | False            |
 | 1  | False              | False             | False             | False         | False            |
-| 2  | False              | False             | TURE              | False         | False            |
+| 2  | False              | False             | TRUE              | False         | False            |
 | 3  | False              | False             | False             | False         | False            |
 | 4  | False              | False             | False             | False         | False            |
 | .. | ...                | ...               | ...               | ...           |                  |
@@ -125,3 +127,62 @@ print(weather < (Q1 - 1.5 * IQR)) |(weather > (Q3 + 1.5 * IQR))
 | 99 | False              | False             | False             | False         | False            |
 
 
+7. Skewness test
+
+print(weather['avg_cloud_cover_8'].skew())
+weather['avg_cloud_cover_8'].describe()
+
+skewness: -0.5
+
+count    100.000000
+
+mean       4.895000
+
+std        1.942734
+
+min        0.000000
+
+25%        4.000000
+
+50%        5.000000
+
+75%        6.500000
+
+max        8.000000
+
+Name: avg_cloud_cover_8, dtype: float64
+
+The skewness of -0.5 implies a left-skewed distribution. That explains the presence of extreme lower outliers.
+
+8. Let's visualize the outliers in a histogram
+
+weather.avg_cloud_cover_8.hist()
+
+![Screen Shot 2022-08-16 at 10 12 38 PM](https://user-images.githubusercontent.com/108639250/185019552-6f8200db-83fd-4a99-8e33-650c4063dc6f.png)
+
+The chart comfirms a left-skewed distribution, indicating outliers on the left
+
+
+9. determine 90% confidence interval
+
+print(weather['avg_cloud_cover_8'].quantile(0.05))
+
+print(weather['avg_cloud_cover_8'].quantile(0.95))
+
+1.0
+
+7.5
+
+10. finally we remove the outliers and return the skewness value
+
+weather['avg_cloud_cover_8'] = np.where(weather['avg_cloud_cover_8']<1.0, 1.0, weather['avg_cloud_cover_8'])
+
+weather['avg_cloud_cover_8'] = np.where(weather['avg_cloud_cover_8']>7.5, 7.5, weather['avg_cloud_cover_8'])
+
+print(weather['avg_cloud_cover_8'].skew())
+
+-0.4, which is closer to 0 than -0.5
+
+11. return all values
+
+weather
