@@ -7,7 +7,6 @@ As a wine-enthusiast, I was fascinated by the degree of weather fluctation attri
 The following database is a climate report that features extreme highs and lows. Let's discover the duplicates and outliers.
 
 
-
 1. import libraries
 
 import pandas as pd
