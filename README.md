@@ -209,4 +209,4 @@ print(weather['avg_cloud_cover_8'].skew())
 weather
 
 
-## The database is now free of outliers and duplicates. A skewness test shows that data distribution has been normalized. The next step is data modeling in a typical data science workflow.
+## The database is now free of outliers and duplicates. The skewness test shows normal distribution. In a typical data science workflow, the next step would be data modeling.
