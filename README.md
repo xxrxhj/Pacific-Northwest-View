@@ -1,4 +1,4 @@
-# Pacific-Northwest-View
+# Pacific Northwest's Hidden Gem
 
 Vancouver BC is known for its Mediterranean climate with rainy winter/spring and temperate summer.
 
