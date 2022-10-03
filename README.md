@@ -209,4 +209,4 @@ print(weather['avg_cloud_cover_8'].skew())
 weather
 
 
-## The database is now free of extreme weather statistics and duplicates. Although climate change is a pervasive challenge, we all have the power to attain net-zero. Think globally; act locally.
+## The database is free of extreme weather statistics and duplicates. Although climate change is a pervasive challenge, we can all help attain net-zero. Think globally; act locally.
