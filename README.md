@@ -4,7 +4,7 @@ Vancouver BC is known for its Mediterranean climate with rainy winter/spring and
 
 As a wine-enthusiast, I was fascinated by the degree to which weather fluctation is attributable to quality grapes.
 
-The database features extreme highs and lows of climate statistics. Let's see what they reveal to us.
+The database features extreme highs and lows of climate statistics. Let's see what the data show us.
 1. The Libraries
 
 ```bash
