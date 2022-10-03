@@ -189,11 +189,11 @@ The chart comfirms a left-skewed distribution, indicating outliers on the left
 print(weather['avg_cloud_cover_8'].quantile(0.05))
 
 print(weather['avg_cloud_cover_8'].quantile(0.95))
-
+```
 1.0
 
 7.5
-
+```
 11. finally we remove the outliers and return the skewness value
 
 weather['avg_cloud_cover_8'] = np.where(weather['avg_cloud_cover_8']<1.0, 1.0, weather['avg_cloud_cover_8'])
@@ -201,9 +201,9 @@ weather['avg_cloud_cover_8'] = np.where(weather['avg_cloud_cover_8']<1.0, 1.0, w
 weather['avg_cloud_cover_8'] = np.where(weather['avg_cloud_cover_8']>7.5, 7.5, weather['avg_cloud_cover_8'])
 
 print(weather['avg_cloud_cover_8'].skew())
-
+```
 -0.4, which is closer to 0 than -0.5
-
+```
 12. Return the database
 
 weather
