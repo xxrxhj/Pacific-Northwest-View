@@ -170,9 +170,9 @@ min        0.000000
 max        8.000000
 
 Name: avg_cloud_cover_8, dtype: float64
-
+```
 The skewness of -0.5 implies a left-skewed distribution. That explains the presence of extreme lower outliers.
-
+```
 9. Let's visualize the outliers in a histogram
 
 weather.avg_cloud_cover_8.hist()
@@ -182,7 +182,7 @@ weather.avg_cloud_cover_8.hist()
 The chart comfirms a left-skewed distribution, indicating outliers on the left
 
 
-10. determine 90% confidence interval
+10. Determine 90% confidence interval
 
 print(weather['avg_cloud_cover_8'].quantile(0.05))
 
@@ -192,7 +192,7 @@ print(weather['avg_cloud_cover_8'].quantile(0.95))
 
 7.5
 ```
-11. finally we remove the outliers and return the skewness value
+11. Finally we remove the outliers and return the skewness value
 
 weather['avg_cloud_cover_8'] = np.where(weather['avg_cloud_cover_8']<1.0, 1.0, weather['avg_cloud_cover_8'])
 
